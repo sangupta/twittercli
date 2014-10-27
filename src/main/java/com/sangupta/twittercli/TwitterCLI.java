@@ -12,6 +12,7 @@ import com.sangupta.twittercli.command.Followers;
 import com.sangupta.twittercli.command.Update;
 import com.sangupta.twittercli.command.Version;
 import com.sangupta.twittercli.command.WhoAmI;
+import com.sangupta.twittercli.command.WhoIs;
 
 public class TwitterCLI {
 	
@@ -22,7 +23,7 @@ public class TwitterCLI {
 		CliBuilder<Runnable> builder = Cli.<Runnable>builder("t")
 										  .withDescription("Command line Twitter client")
 										  .withDefaultCommand(Help.class)
-										  .withCommands(Help.class, Authorize.class, Version.class, WhoAmI.class, Followers.class, Update.class);
+										  .withCommands(Help.class, Authorize.class, Version.class, WhoAmI.class, Followers.class, Update.class, WhoIs.class);
 		
 		
 		Cli<Runnable> cliParser = builder.build();
