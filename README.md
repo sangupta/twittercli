@@ -13,6 +13,17 @@ Changelog
 
 * Initial release
 
+Commands Supported
+------------------
+
+```
+$ t authorize
+$ t update "status"
+$ t followers
+$ t whoami
+$ t version
+```
+
 Versioning
 ----------
 
