@@ -42,4 +42,12 @@ public abstract class TwitterCommand implements Runnable {
 	
 	public abstract void doCommand();
 
+	protected String getScreenName(String user) {
+		if(user.startsWith("@")) {
+			return user.substring(1);
+		}
+		
+		return user;
+	}
+
 }

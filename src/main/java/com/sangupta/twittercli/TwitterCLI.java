@@ -29,11 +29,13 @@ import io.airlift.command.ParseArgumentsUnexpectedException;
 import com.sangupta.jerry.store.PropertiesUserLocalStore;
 import com.sangupta.jerry.store.UserLocalStore;
 import com.sangupta.twittercli.command.Authorize;
+import com.sangupta.twittercli.command.Follow;
 import com.sangupta.twittercli.command.Followers;
 import com.sangupta.twittercli.command.Mentions;
 import com.sangupta.twittercli.command.Retweets;
 import com.sangupta.twittercli.command.RetweetsOfMe;
 import com.sangupta.twittercli.command.Timeline;
+import com.sangupta.twittercli.command.Unfollow;
 import com.sangupta.twittercli.command.Update;
 import com.sangupta.twittercli.command.Users;
 import com.sangupta.twittercli.command.Version;
@@ -53,7 +55,8 @@ public class TwitterCLI {
 										  .withCommands(Help.class, Authorize.class, Version.class, 
 												  		WhoAmI.class, Followers.class, Update.class, 
 												  		WhoIs.class, Users.class, Retweets.class, 
-												  		RetweetsOfMe.class, Mentions.class, Timeline.class);
+												  		RetweetsOfMe.class, Mentions.class, Timeline.class,
+												  		Follow.class, Unfollow.class);
 		
 		
 		Cli<Runnable> cliParser = builder.build();
