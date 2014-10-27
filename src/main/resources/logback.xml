@@ -10,10 +10,10 @@
 	</appender>
 
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/logs/twittercli.log</file>
+		<file>${user.home}/logs/twittercli.log</file>
 		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>/logs/twittercli.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+			<fileNamePattern>${user.home}/logs/twittercli.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
 			<maxHistory>60</maxHistory>
 		</rollingPolicy>
 		<encoder>
