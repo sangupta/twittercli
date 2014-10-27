@@ -11,6 +11,7 @@ public class WhoAmI extends TwitterCommand {
 	@Override
 	public void doCommand() {
 		TwitterUserProfile profile = (TwitterUserProfile) user.getUserProfile();
+		
 		System.out.println("ID: " + profile.getId());
 		System.out.println("Since: " + profile.getCreatedAt());
 		System.out.println("Screen Name: " + profile.getScreenName());

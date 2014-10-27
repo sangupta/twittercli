@@ -15,7 +15,7 @@ import com.sangupta.twittercli.TwitterCLI;
 import com.sangupta.twittercli.TwitterCLIConstants;
 
 @Command(name = "authorize", description = "Authorize the application for use")
-public class AuthorizeCommand implements Runnable {
+public class Authorize implements Runnable {
 
 	public void run() {
 		String apiKey = TwitterCLI.LOCAL_STORE.get(TwitterCLIConstants.API_KEY);
