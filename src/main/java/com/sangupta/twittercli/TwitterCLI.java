@@ -32,6 +32,7 @@ import com.sangupta.twittercli.command.Authorize;
 import com.sangupta.twittercli.command.Follow;
 import com.sangupta.twittercli.command.Followers;
 import com.sangupta.twittercli.command.Mentions;
+import com.sangupta.twittercli.command.Open;
 import com.sangupta.twittercli.command.Retweets;
 import com.sangupta.twittercli.command.RetweetsOfMe;
 import com.sangupta.twittercli.command.Timeline;
@@ -56,7 +57,7 @@ public class TwitterCLI {
 												  		WhoAmI.class, Followers.class, Update.class, 
 												  		WhoIs.class, Users.class, Retweets.class, 
 												  		RetweetsOfMe.class, Mentions.class, Timeline.class,
-												  		Follow.class, Unfollow.class);
+												  		Follow.class, Unfollow.class, Open.class);
 		
 		
 		Cli<Runnable> cliParser = builder.build();
