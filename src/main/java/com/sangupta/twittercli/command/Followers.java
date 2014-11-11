@@ -21,17 +21,19 @@
 
 package com.sangupta.twittercli.command;
 
+import io.airlift.command.Command;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import io.airlift.command.Command;
 
 import com.google.gson.FieldNamingPolicy;
 import com.sangupta.jerry.http.WebInvoker;
 import com.sangupta.jerry.http.WebRequest;
 import com.sangupta.jerry.http.WebRequestMethod;
 import com.sangupta.jerry.http.WebResponse;
+import com.sangupta.jerry.print.ConsoleTable;
+import com.sangupta.jerry.print.ConsoleTable.ConsoleTableLayout;
 import com.sangupta.jerry.util.GsonUtils;
 import com.sangupta.satya.user.impl.TwitterUserProfile;
 import com.sangupta.twittercli.TwitterCommand;
@@ -61,10 +63,19 @@ public class Followers extends TwitterCommand {
 			cursor = list.nextCursor;
 		} while(true);
 		
+		ConsoleTable table = new ConsoleTable(ConsoleTableLayout.MULTI_LINE);
+		table.addHeaderRow("S.No.", "Screen Name", "Full Name", "Bio");
+
+		int count = 1;
 		for(TwitterUserProfile profile : userList) {
-			System.out.print(profile.getScreenName() + "\t\t" + profile.getName() + "\t\t" + profile.getDescription());
-			System.out.println();
+			table.addRow(count++, profile.getScreenName(), profile.getName(), profile.getDescription());
 		}
+		
+		table.setColumnSize(1, 15);
+		table.setColumnSize(2, 25);
+		table.setColumnSize(3, 40);
+		
+		table.write(System.out);
 	}
 
 }

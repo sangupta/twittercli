@@ -29,8 +29,11 @@ import io.airlift.command.ParseArgumentsUnexpectedException;
 import com.sangupta.jerry.store.PropertiesUserLocalStore;
 import com.sangupta.jerry.store.UserLocalStore;
 import com.sangupta.twittercli.command.Authorize;
+import com.sangupta.twittercli.command.DumpFollowing;
+import com.sangupta.twittercli.command.DumpHelp;
 import com.sangupta.twittercli.command.Follow;
 import com.sangupta.twittercli.command.Followers;
+import com.sangupta.twittercli.command.Following;
 import com.sangupta.twittercli.command.Mentions;
 import com.sangupta.twittercli.command.Open;
 import com.sangupta.twittercli.command.Retweets;
@@ -47,9 +50,9 @@ public class TwitterCLI {
 	
 	public static final UserLocalStore LOCAL_STORE = new PropertiesUserLocalStore(null, "twittercli");
 	
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
-		@SuppressWarnings("unchecked")
 		CliBuilder<Runnable> builder = Cli.<Runnable>builder("t")
 										  .withDescription("Command line Twitter client")
 										  .withDefaultCommand(Help.class)
@@ -57,8 +60,12 @@ public class TwitterCLI {
 												  		WhoAmI.class, Followers.class, Update.class, 
 												  		WhoIs.class, Users.class, Retweets.class, 
 												  		RetweetsOfMe.class, Mentions.class, Timeline.class,
-												  		Follow.class, Unfollow.class, Open.class);
+												  		Follow.class, Unfollow.class, Open.class, Following.class);
 		
+		builder.withGroup("dump")
+			   .withDescription("Dump data from twitter accounts")
+			   .withDefaultCommand(DumpHelp.class)
+			   .withCommands(DumpFollowing.class);
 		
 		Cli<Runnable> cliParser = builder.build();
 		
