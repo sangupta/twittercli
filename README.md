@@ -27,7 +27,7 @@ $ t version
 Versioning
 ----------
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, 
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility,
 `twittercli` will be maintained under the Semantic Versioning guidelines as much as possible.
 
 Releases will be numbered with the follow format:
@@ -44,7 +44,7 @@ For more information on SemVer, please visit http://semver.org/.
 
 License
 -------
-	
+
 ```
 twittercli - Command line power tool for Twitter
 Copyright (c) 2014, Sandeep Gupta
